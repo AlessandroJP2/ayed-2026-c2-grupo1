@@ -1,40 +1,45 @@
 CATALOGO = [
     { "id": 1, 
-      "titulo": "Propuesta indecente", 
-      "artista": "Romeo Santos", 
-      "album": "Formula", 
-      "fecha_de_lanzamiento": 2014, 
-      "duracion": "03:55"
+      "titulo": "De Musica Ligera", 
+      "artista": "Soda Stereo", 
+      "album": "Cancion Animal", 
+      "genero": "Rock",
+      "fecha_de_lanzamiento": 1990, 
+      "duracion": "213"
     },
 
-    { "id": 2, 
-      "titulo": "M.A.I", 
-      "artista": "Milo j",
-      "album": "111",
-      "fecha_de_lanzamiento": 2023,
-      "duracion": "03:04"
+    { "id": 6, 
+      "titulo": "Muchacha ojos de papel", 
+      "artista": "Luis Alberto Spinetta",
+      "album": "Almendra",
+      "genero": "Rock",
+      "fecha_de_lanzamiento": 1969,
+      "duracion": "198"
     },
 
-    { "id": 3,
-      "titulo": "Houdini",
-      "artista": "Dua Lipa",
-      "album": "Radical Optimism",
-      "fecha_de_lanzamiento": 2024,
-      "duracion": "03:05"
+    { "id": 15,
+      "titulo": "Alfonsina y el mar",
+      "artista": "Mercedes Sosa",
+      "album": "Mujeres Argentinas",
+      "genero": "Folklore",
+      "fecha_de_lanzamiento": 1969,
+      "duracion": "298"
     },
-    { "id": 4,
-      "titulo": "Right Now",
-      "artista": "Korn",
-      "album": "Take a look in the mirror",
-      "fecha_de_lanzamiento": 2003,
-      "duracion": "03:09"
+    { "id": 25,
+      "titulo": "Natacha",
+      "artista": "Wos",
+      "album": "Oscuro Extasis",
+      "genero": "Urbano",
+      "fecha_de_lanzamiento": 2019,
+      "duracion": "183"
     },
-    { "id": 5,
-      "titulo": "The Emptiness Machine",
-      "artista": "Linkin Park",
-      "album": "From Zero",
-      "fecha_de_lanzamiento": 2024,
-      "duracion": "03:10"
+    { "id": 29,
+      "titulo": "Titi Me Pregunto",
+      "artista": "Bad Bunny",
+      "album": "Un Verano Sin Ti",
+      "genero": "Urbano",
+      "fecha_de_lanzamiento": 2022,
+      "duracion": "243"
     }
 ]
 
