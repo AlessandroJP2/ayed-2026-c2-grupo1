@@ -1,45 +1,33 @@
-CATALOGO = [
-    { "id": 1, 
-      "titulo": "De Musica Ligera", 
-      "artista": "Soda Stereo", 
-      "album": "Cancion Animal", 
-      "genero": "Rock",
-      "fecha_de_lanzamiento": 1990, 
-      "duracion": "213"
-    },
+import csv 
+from src.dominio.biblioteca import Biblioteca
+from src.dominio.cancion import Cancion
 
-    { "id": 6, 
-      "titulo": "Muchacha ojos de papel", 
-      "artista": "Luis Alberto Spinetta",
-      "album": "Almendra",
-      "genero": "Rock",
-      "fecha_de_lanzamiento": 1969,
-      "duracion": "198"
-    },
+def cargar_biblioteca():
+  biblioteca = Biblioteca()
 
-    { "id": 15,
-      "titulo": "Alfonsina y el mar",
-      "artista": "Mercedes Sosa",
-      "album": "Mujeres Argentinas",
-      "genero": "Folklore",
-      "fecha_de_lanzamiento": 1969,
-      "duracion": "298"
-    },
-    { "id": 25,
-      "titulo": "Natacha",
-      "artista": "Wos",
-      "album": "Oscuro Extasis",
-      "genero": "Urbano",
-      "fecha_de_lanzamiento": 2019,
-      "duracion": "183"
-    },
-    { "id": 29,
-      "titulo": "Titi Me Pregunto",
-      "artista": "Bad Bunny",
-      "album": "Un Verano Sin Ti",
-      "genero": "Urbano",
-      "fecha_de_lanzamiento": 2022,
-      "duracion": "243"
-    }
-]
+  with open("data/canciones.csv", encoding="utf-8") as archivo:
+    lector = csv.DictReader (archivo)
 
+    for fila in lector:
+        cancion = Cancion (
+            fila["id"],
+            fila["titulo"],
+            fila["artista"],
+            fila["album"],
+            fila["genero"],
+            fila["anio"],
+            fila["duracion_seg"]
+        )
+        biblioteca.agregar_cancion(cancion)
+
+  with open("data/versiones.csv", encoding="utf-8") as archivo:
+    lector = csv.DictReader (archivo)
+
+    for fila in lector:
+      biblioteca.agregar_version(
+        int(fila["cancion_id"]),
+        int(fila["version_de_id"]),
+        fila["tipo"]
+      )
+
+  return biblioteca
