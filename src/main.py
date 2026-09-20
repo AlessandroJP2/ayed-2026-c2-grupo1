@@ -1,5 +1,6 @@
 from src.config import TEMA
-from src.dominio.musica import CATALOGO
+from src.dominio.musica import cargar_biblioteca
+from src.excepciones import ItemNoEncontradoError
 
 TEMAS = {
     "pokedex": "Pokédex",
@@ -7,19 +8,39 @@ TEMAS = {
     "musica": "Biblioteca musical",
 }
 
+def mostrar_versiones (biblioteca):
+    try:
+        cancion_id = int (input("Ingresa el ID correspondiente a la canción:"))
+
+        cancion = biblioteca.obtener_cancion (cancion_id)
+        derivadas = biblioteca.obtener_canciones_derivadas (cancion_id)
+
+        print (f"\n Versiones derivadas de: {cancion.titulo()}")
+
+        if not derivadas:
+            print ("Esta canción no posee versiones derivadas de ella.")
+        else:
+            for derivada in derivadas:
+                print (derivada)
+
+    except ValueError:
+     print ("El ID debe ser un número")
+    except ItemNoEncontradoError as error:
+     print (error)
+        
 def pendiente():
     print("Todavía no está implementado. Completar en la entrega que corresponde.")
 
-def listar_catalogo():
+def listar_catalogo(biblioteca):
     print("\n --- Catalogo de Canciones ---")
-    for cancion in CATALOGO:
+    for cancion in biblioteca.obtener_todas_las_canciones():
         print("---------------------------------")
-        print(f"Id:                     {cancion["id"]}")
-        print(f"Título:                 {cancion["titulo"]}")
-        print(f"Artista:                {cancion["artista"]}")
-        print(f"Álbum:                  {cancion["album"]}")
-        print(f"Fecha de lanzamiento:   {cancion["fecha_de_lanzamiento"]}")
-        print(f"Duración:               {cancion["duracion"]}")
+        print(f"Id:                     {cancion.id()}")
+        print(f"Título:                 {cancion.titulo()}")
+        print(f"Artista:                {cancion.artista()}")
+        print(f"Álbum:                  {cancion.album()}")
+        print(f"Año de lanzamiento:   {cancion.anio()}")
+        print(f"Duración:               {cancion.duracion_formateada()}")
         print("---------------------------------")
 
 def mostrar_menu():
@@ -37,11 +58,12 @@ def mostrar_menu():
     print("9. Guardar / cargar archivos")
     print("0. Salir")
 
-
 def main():
     if TEMA not in TEMAS:
         print("Seteá TEMA en src/config.py: 'pokedex', 'recetario' o 'musica'.")
         return
+
+    biblioteca = cargar_biblioteca()
 
     opcion = None
     while opcion != "0":
@@ -50,12 +72,13 @@ def main():
         if opcion == "0":
             print("Chau.")
         elif opcion == "1": 
-            listar_catalogo() 
-        elif opcion in {"2", "3", "4", "5", "6", "7", "8", "9"}:
+            listar_catalogo(biblioteca) 
+        elif opcion == "5":
+            mostrar_versiones (biblioteca)
+        elif opcion in {"2", "3", "4", "6", "7", "8", "9"}:
             pendiente()
         else:
             print("Opción inválida.")
-
 
 if __name__ == "__main__":
     main()
