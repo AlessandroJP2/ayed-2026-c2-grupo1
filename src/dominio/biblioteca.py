@@ -42,7 +42,8 @@ class Biblioteca:
 
     return derivadas
 
-
+  def obtener_todas_las_canciones (self) -> list [Cancion]:
+    return list(self._cancion_por_id.values())
 
 
 
