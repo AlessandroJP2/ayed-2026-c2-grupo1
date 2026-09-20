@@ -6,6 +6,7 @@ class Biblioteca:
     
     self._cancion_por_id = {}
     self._versiones_por_origen = {}
+    self.copy = {}
 
 
 
