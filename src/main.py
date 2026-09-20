@@ -22,6 +22,9 @@ def listar_catalogo():
         print(f"Duración:               {cancion["duracion"]}")
         print("---------------------------------")
 
+def operacion_recursiva():
+    pass
+
 def mostrar_menu():
     nombre = TEMAS.get(TEMA, TEMA or "(sin tema)")
     print()
