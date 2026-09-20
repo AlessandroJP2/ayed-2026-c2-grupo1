@@ -37,5 +37,5 @@ class Cancion:
    return f"{minutos:0d}:{segundos:0d}"
 
   def __str__ (self):
-   return f:"""[{self._id}]" {self._titulo} - {self._artista} \n
+   return f"""[{self._id}]" {self._titulo} - {self._artista} \n
    Álbum: {self._album} | Año de lanzamiento: {self._anio} | Género: {self._genero} | Duración: {self.duracion_formateada()}"""
