@@ -20,10 +20,10 @@ Todo lo que contiene cada canción, sus atributos: título, artista, album, fech
 
 ## 3. Recursión (E2)
 
-- Función:
-- Caso base:
-- Caso recursivo:
-- Traza de un ejemplo real del dataset:
+- Función: obtener_canciones_derivadas (origen_id).
+- Caso base: si la canción citada no cuenta con versiones derivadas entonces la biblioteca no encuentra relaciones asociadas a su ID, se devuelve una lista vacía y finaliza esa rama de búsqueda. 
+- Caso recursivo: Cuando una canción posee una o más versiones derivadas, la función incorpora cada versión de estas encontrada a una lista de resultados y vuelve a llamarse utilizando el ID con el objetivo de verificar si existen nuevas versiones hasta alcanzar una canción sin versiones derivadas nuevas. 
+- Traza de un ejemplo real del dataset: al consultar la canción número 1, se encuentra la relación: 62 -> 1. Por lo que se agrega "De Música Ligera (Unplugged)" y se consulta si la canción correspondiente a ese ID (en este caso de esta canción), tiene más canciones derivadas. Como no tiene, en este caso, se alcanza el caso base. 
 
 ## 4. TADs (E3)
 
