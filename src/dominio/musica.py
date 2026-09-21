@@ -1,40 +1,33 @@
-CATALOGO = [
-    { "id": 1, 
-      "titulo": "Propuesta indecente", 
-      "artista": "Romeo Santos", 
-      "album": "Formula", 
-      "fecha_de_lanzamiento": 2014, 
-      "duracion": "03:55"
-    },
+import csv 
+from src.dominio.biblioteca import Biblioteca
+from src.dominio.cancion import Cancion
 
-    { "id": 2, 
-      "titulo": "M.A.I", 
-      "artista": "Milo j",
-      "album": "111",
-      "fecha_de_lanzamiento": 2023,
-      "duracion": "03:04"
-    },
+def cargar_biblioteca():
+  biblioteca = Biblioteca()
 
-    { "id": 3,
-      "titulo": "Houdini",
-      "artista": "Dua Lipa",
-      "album": "Radical Optimism",
-      "fecha_de_lanzamiento": 2024,
-      "duracion": "03:05"
-    },
-    { "id": 4,
-      "titulo": "Right Now",
-      "artista": "Korn",
-      "album": "Take a look in the mirror",
-      "fecha_de_lanzamiento": 2003,
-      "duracion": "03:09"
-    },
-    { "id": 5,
-      "titulo": "The Emptiness Machine",
-      "artista": "Linkin Park",
-      "album": "From Zero",
-      "fecha_de_lanzamiento": 2024,
-      "duracion": "03:10"
-    }
-]
+  with open("data/canciones.csv", encoding="utf-8") as archivo:
+    lector = csv.DictReader (archivo)
 
+    for fila in lector:
+        cancion = Cancion (
+            fila["id"],
+            fila["titulo"],
+            fila["artista"],
+            fila["album"],
+            fila["genero"],
+            fila["anio"],
+            fila["duracion_seg"]
+        )
+        biblioteca.agregar_cancion(cancion)
+
+  with open("data/versiones.csv", encoding="utf-8") as archivo:
+    lector = csv.DictReader (archivo)
+
+    for fila in lector:
+      biblioteca.agregar_version(
+        int(fila["cancion_id"]),
+        int(fila["version_de_id"]),
+        fila["tipo"]
+      )
+
+  return biblioteca

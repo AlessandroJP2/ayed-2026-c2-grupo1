@@ -31,10 +31,17 @@ def anio (self) -> int:
 def duracion_seg (self) -> int:
   return self._duracion_seg
 
+<<<<<<< HEAD
 def duracion_formateada (self) -> str:
   minutos = self._duracion_seg // 60
   segundos = self._duracion_seg % 60
   return f"{minutos:0d}:{segundos:0d}"
+=======
+  def duracion_formateada (self) -> str:
+   minutos = self._duracion_seg // 60
+   segundos = self._duracion_seg % 60
+   return f"{minutos}:{segundos:02d}"
+>>>>>>> upstream/HEAD
 
 def _str_ (self):
   return f"""[{self._id}]" {self._titulo} - {self._artista} \n
