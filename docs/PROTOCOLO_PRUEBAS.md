@@ -11,13 +11,13 @@ Mínimos: 8 casos escritos en E2; ejecutados en E3; 15 de regresión en E6 (pila
 | P01 | E1 | Arrancar el programa y listar catálogo | dataset de la cátedra | lista no vacía, sin traceback |pasa |se cargaron y listaron todas las canciones desde canciones.csv |
 | P02 | E1 | Elegir un ítem inexistente | id = -1 | mensaje claro, el menú sigue |no pasa|la opción 2 todavía no pide un ID para buscar un ítem|
 | P03 | E2 | Elegir opción 5 e ingresar un ID con versiones| id= 1| muestra: "De Musica Ligera (Unplugged)"|pasa|versión live|
-| P03 | E2 | Elegir opción 5 e ingresar un ID con versiones| id= 32 |muestra: " Bohemian Rhapsody (Live Aid)" |pasa| versión live|
-| P03 | E2 | Elegir opción 5 e ingresar un ID con versiones| id= 61 |muestra: "  Gracias a la Vida" |pasa| versión cover|
-| P03 | E2 | Elegir opción 5 e ingresar un ID inexistente| id= 666 |muestra: "No existe una canción con ese ID" |pasa| |
-| P03 | E2 | Elegir opción 5 e ingresar texto en vez de un número| "hola" |muestra: "El ID debe ser un número"|pasa| |
-| P03 | E2 | Elegir opción 5 e ingresar un espacio vacío| " " |muestra: "El ID debe ser un número"|pasa| |
-| P03 | E2 | Listar catálogo y luego elegir opción 5 e ingresar un ID con versiones| opción 1-opción 5- id =12| lista canciones y muestra:"Ji Ji Ji"|pasa| Versión En directo|
 | P04 | E2 | Elegir opción 5 e ingresar un ID sin versiones | id =2 | muestra: Esta canción no posee versiones derivadas de ella |pasa|  |
+| P16 | E2 | Elegir opción 5 e ingresar un ID con versiones| id= 32 |muestra: " Bohemian Rhapsody (Live Aid)" |pasa| versión live|
+| P017 | E2 | Elegir opción 5 e ingresar un ID con versiones| id= 61 |muestra: "  Gracias a la Vida" |pasa| versión cover|
+| P018 | E2 | Elegir opción 5 e ingresar un ID inexistente| id= 666 |muestra: "No existe una canción con ese ID" |pasa| |
+| P019 | E2 | Elegir opción 5 e ingresar texto en vez de un número| "hola" |muestra: "El ID debe ser un número"|pasa| |
+| P20 | E2 | Elegir opción 5 e ingresar un espacio vacío| " " |muestra: "El ID debe ser un número"|pasa| |
+| P21 | E2 | Listar catálogo y luego elegir opción 5 e ingresar un ID con versiones| opción 1-opción 5- id =12| lista canciones y muestra:"Ji Ji Ji"|pasa| Versión En directo|
 | P05 | E3 | Agregar a la colección principal hasta el tope | equipo de 6 / equivalente | el séptimo falla con excepción propia |  |  |
 | P06 | E3 | Desapilar historial vacío | pila vacía | excepción propia, menú sigue |  |  |
 | P07 | E3 | Desencolar cola vacía | cola vacía | excepción propia, menú sigue |  |  |
